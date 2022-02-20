@@ -63,11 +63,12 @@ Text buildText(
   FontWeight fw,
   TextAlign textAlign, {
   double? heightSize,
+  TextOverflow? textOverflow,
 }) {
   return Text(
     text,
     textDirection: TextDirection.rtl,
-    // overflow: TextOverflow.clip,
+    overflow: textOverflow ?? TextOverflow.ellipsis,
     textAlign: textAlign,
     style: TextStyle(
       fontFamily: 'Tajawal',

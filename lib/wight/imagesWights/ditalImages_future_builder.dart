@@ -183,14 +183,18 @@ class _DitalImagesFutureBuilderState extends State<DitalImagesFutureBuilder> {
                                   color: AppColors.black.withOpacity(0.35),
                                   child: Column(
                                     children: [
-                                      Align(
-                                        alignment: Alignment.centerRight,
-                                        child: buildText(
-                                          '${data['AdTitle']}',
-                                          17.sp,
-                                          AppColors.white,
-                                          FontWeight.w700,
-                                          TextAlign.center,
+                                      SizedBox(
+                                        height: 20.h,
+                                        child: Align(
+                                          alignment: Alignment.centerRight,
+                                          child: buildText(
+                                            '${data['AdTitle']}',
+                                            15.sp,
+                                            AppColors.white,
+                                            FontWeight.w700,
+                                            TextAlign.start,
+                                            textOverflow: TextOverflow.visible,
+                                          ),
                                         ),
                                       ),
                                       Row(

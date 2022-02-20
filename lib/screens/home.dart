@@ -206,123 +206,166 @@ class _HomeState extends State<Home> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.end,
-                                                  children: [
-                                                    SizedBox(height: 10.h),
-                                                    buildText(
-                                                      snapshot.data!.docs[i]
-                                                          .get('AdTitle'),
-                                                      12.sp,
-                                                      AppColors.purple,
-                                                      FontWeight.w700,
-                                                      TextAlign.center,
-                                                    ),
-                                                    SizedBox(height: 6.h),
-                                                    Row(
+                                                SingleChildScrollView(
+                                                  child: SizedBox(
+                                                    width: 235.w,
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .end,
                                                       children: [
-                                                        buildText(
-                                                          'ج.م  ',
-                                                          12.sp,
-                                                          AppColors.blue100,
-                                                          FontWeight.w700,
-                                                          TextAlign.center,
+                                                        SizedBox(
+                                                          child: buildText(
+                                                            snapshot
+                                                                .data!.docs[i]
+                                                                .get('AdTitle'),
+                                                            12.sp,
+                                                            AppColors.purple,
+                                                            FontWeight.w700,
+                                                            TextAlign.center,
+                                                          ),
                                                         ),
-                                                        buildText(
-                                                          '${snapshot.data!.docs[i].get('unitPrice')}',
-                                                          //'500000',
-                                                          15.sp,
-                                                          AppColors.blue100,
-                                                          FontWeight.w700,
-                                                          TextAlign.center,
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    SizedBox(height: 4.h),
-                                                    Row(
-                                                      children: [
+                                                        SizedBox(height: 10.h),
                                                         Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
                                                           children: [
                                                             buildText(
-                                                              'زيادة سنوية',
+                                                              'ج.م  ',
+                                                              12.sp,
+                                                              AppColors.blue100,
+                                                              FontWeight.w700,
+                                                              TextAlign.center,
+                                                            ),
+                                                            buildText(
+                                                              '${snapshot.data!.docs[i].get('unitPrice')}',
+                                                              //'500000',
+                                                              15.sp,
+                                                              AppColors.blue100,
+                                                              FontWeight.w700,
+                                                              TextAlign.center,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        SizedBox(height: 4.h),
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
+                                                          children: [
+                                                            Row(
+                                                              children: [
+                                                                buildText(
+                                                                  'زيادة سنوية',
+                                                                  11.sp,
+                                                                  AppColors
+                                                                      .blue100,
+                                                                  FontWeight
+                                                                      .w700,
+                                                                  TextAlign
+                                                                      .center,
+                                                                ),
+                                                                SizedBox(
+                                                                    width: 5.w),
+                                                                SizedBox(
+                                                                  width: 35.w,
+                                                                  height: 15.h,
+                                                                  child: buildText(
+                                                                      //' 13% ',
+                                                                      '${snapshot.data!.docs[i].get('AnnualIncrementValue')}%',
+                                                                      15.sp,
+                                                                      AppColors.green,
+                                                                      FontWeight.w700,
+                                                                      TextAlign.end),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            SizedBox(
+                                                                width: 18.w),
+                                                            SizedBox(
+                                                              width: 106.w,
+                                                              child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  buildText(
+                                                                    'عائد سنوى',
+                                                                    11.sp,
+                                                                    AppColors
+                                                                        .blue100,
+                                                                    FontWeight
+                                                                        .w700,
+                                                                    TextAlign
+                                                                        .center,
+                                                                  ),
+                                                                  SizedBox(
+                                                                    width: 50.w,
+                                                                    height:
+                                                                        15.h,
+                                                                    child:
+                                                                        buildText(
+                                                                      '${snapshot.data!.docs[i].get('annualReturnValue')}',
+                                                                      // '5000',
+                                                                      15.sp,
+                                                                      AppColors
+                                                                          .green,
+                                                                      FontWeight
+                                                                          .w700,
+                                                                      TextAlign
+                                                                          .start,
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        SizedBox(height: 2.h),
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
+                                                          children: [
+                                                            buildText(
+                                                                'ج.م    ',
+                                                                12.sp,
+                                                                AppColors
+                                                                    .blue100,
+                                                                FontWeight.w700,
+                                                                TextAlign
+                                                                    .center),
+                                                            SizedBox(
+                                                              width: 55.w,
+                                                              height: 15.h,
+                                                              child: buildText(
+                                                                  '${snapshot.data!.docs[i].get('ExpectedAnnualIncome').toInt()}',
+                                                                  // '8000 ',
+                                                                  15.sp,
+                                                                  AppColors
+                                                                      .purple,
+                                                                  FontWeight
+                                                                      .w700,
+                                                                  TextAlign
+                                                                      .center),
+                                                            ),
+                                                            SizedBox(
+                                                                width: 28.w),
+                                                            buildText(
+                                                              ' اجمالي العائد السنوي ',
                                                               11.sp,
                                                               AppColors.blue100,
                                                               FontWeight.w700,
                                                               TextAlign.center,
                                                             ),
-                                                            SizedBox(
-                                                                width: 5.w),
-                                                            buildText(
-                                                                //' 13% ',
-                                                                '${snapshot.data!.docs[i].get('AnnualIncrementValue')}%',
-                                                                15.sp,
-                                                                AppColors.green,
-                                                                FontWeight.w700,
-                                                                TextAlign
-                                                                    .center),
+                                                            // SizedBox(width: 8.w),
                                                           ],
                                                         ),
-                                                        SizedBox(width: 20.w),
-                                                        SizedBox(
-                                                          width: 105.w,
-                                                          child: Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              buildText(
-                                                                'عائد سنوى',
-                                                                11.sp,
-                                                                AppColors
-                                                                    .blue100,
-                                                                FontWeight.w700,
-                                                                TextAlign
-                                                                    .center,
-                                                              ),
-                                                              buildText(
-                                                                '${snapshot.data!.docs[i].get('annualReturnValue')}',
-                                                                // '5000',
-                                                                15.sp,
-                                                                AppColors.green,
-                                                                FontWeight.w700,
-                                                                TextAlign
-                                                                    .center,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
+                                                        // SizedBox(height: 8.h),
                                                       ],
                                                     ),
-                                                    SizedBox(height: 2.h),
-                                                    Row(
-                                                      children: [
-                                                        buildText(
-                                                            'ج.م    ',
-                                                            12.sp,
-                                                            AppColors.blue100,
-                                                            FontWeight.w700,
-                                                            TextAlign.center),
-                                                        buildText(
-                                                            '${snapshot.data!.docs[i].get('ExpectedAnnualIncome').toInt()}',
-                                                            // '8000 ',
-                                                            15.sp,
-                                                            AppColors.purple,
-                                                            FontWeight.w700,
-                                                            TextAlign.center),
-                                                        SizedBox(width: 28.w),
-                                                        buildText(
-                                                          ' اجمالي العائد السنوي ',
-                                                          11.sp,
-                                                          AppColors.blue100,
-                                                          FontWeight.w700,
-                                                          TextAlign.center,
-                                                        ),
-                                                        // SizedBox(width: 8.w),
-                                                      ],
-                                                    ),
-                                                    // SizedBox(height: 8.h),
-                                                  ],
+                                                  ),
                                                 ),
                                                 SizedBox(width: 10.w),
                                                 if (getimage(snapshot, i) == '')
