@@ -13,6 +13,7 @@ class MainProvider with ChangeNotifier {
   bool filterBottomSheetIsOpen = false;
   bool filterBottomSheetDropdownlistIsOpen = false;
   // late bool _darkTheme;
+  bool termsAgreement = false;
   bool isLoding = false;
   bool sellansRentOrderShowBTN = false;
   bool iamReadySellShowDilog = false;
@@ -67,6 +68,11 @@ class MainProvider with ChangeNotifier {
       notifyListeners();
       return fristTime;
     }
+  }
+
+  void changeTermsAgreement(bool newTermsAgreement) {
+    termsAgreement = newTermsAgreement;
+    notifyListeners();
   }
 
   void changeiamReadySellShowDilog(bool newiamReadySellShowDilog) {

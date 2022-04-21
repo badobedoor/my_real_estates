@@ -78,7 +78,6 @@ void showDialogFUN({
                           .changesellansRentOrderShowBTN(false);
                       Navigator.of(context).pop();
                       Navigator.of(context).pop();
-                      Navigator.of(context).pop();
                     }
                   },
                   child: Container(

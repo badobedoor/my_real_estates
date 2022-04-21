@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_real_estates/wight/appWight&Theme/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../wight/tab_bar.dart';
 import 'help.dart';
 import 'home.dart';
 
@@ -37,10 +38,8 @@ class _SplashState extends State<Splash> {
                       builder: (context) => const HelpPage()));
             })
           : SchedulerBinding.instance!.addPostFrameCallback((_) {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute<dynamic>(
-                      builder: (context) => const Home()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute<dynamic>(builder: (context) => Home()));
             });
     });
   }

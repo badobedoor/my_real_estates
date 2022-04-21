@@ -16,6 +16,7 @@ import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 import '../Provider/main_provider.dart';
+import '../wight/dilog/Privacy_dilog.dart';
 import '../wight/dilog/showDialog.dart';
 import '../wight/imagesWights/addImage_contaner.dart';
 
@@ -59,6 +60,8 @@ class _SellOrderState extends State<SellOrder> {
 
   @override
   Widget build(BuildContext context) {
+    final termsAgreement =
+        Provider.of<MainProvider>(context, listen: true).termsAgreement;
     final List<XFile>? imageFileList =
         Provider.of<MainProvider>(context, listen: true).imageFileList;
     return Scaffold(
@@ -408,6 +411,7 @@ class _SellOrderState extends State<SellOrder> {
                                     rowCount: 8,
                                     controller: _notesConttroller,
                                     inputType: TextInputType.multiline,
+                                    marginBottom: 0,
                                     hintText: '''
 مثال (مستوى راقي وبها تكييفات ... الخ) -
 مثال (قريبة من موقف او مدرسة كذا ... الخ) -
@@ -417,6 +421,69 @@ class _SellOrderState extends State<SellOrder> {
 مثال (احتاج مده طويلة ... الخ) -
 ''',
                                     lableText: 'ملاحظات'),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          top: 6.sp,
+                                          bottom: 5.sp,
+                                          right: 20.sp,
+                                          left: 0),
+                                      child: GestureDetector(
+                                        // Text('أوافق على الشروط والاحكام'),
+                                        child: RichText(
+                                          text: TextSpan(
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 15.sp),
+                                            children: <TextSpan>[
+                                              TextSpan(text: 'أوافق على'),
+                                              TextSpan(text: ' '),
+                                              TextSpan(
+                                                  text: 'الشروط والاحكام ',
+                                                  style: TextStyle(
+                                                      color: Colors.blue,
+                                                      decoration: TextDecoration
+                                                          .underline)),
+                                              // TextSpan(text: 'dot '),
+                                            ],
+                                          ),
+                                        ),
+                                        onTap: () {
+                                          privacyDialog(context: context);
+                                        },
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 24.0,
+                                      width: 24.0,
+                                      child: Checkbox(
+                                          checkColor: Colors.white,
+                                          activeColor: AppColors.darkblue,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(2.0),
+                                          ),
+                                          side: MaterialStateBorderSide
+                                              .resolveWith(
+                                            (states) => BorderSide(
+                                                width: 1.0,
+                                                color: AppColors.darkblue),
+                                          ),
+                                          value: termsAgreement,
+                                          onChanged: (bool? value) {
+                                            Provider.of<MainProvider>(context,
+                                                    listen: false)
+                                                .changeTermsAgreement(value!);
+                                          }),
+                                    )
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 25.h,
+                                ),
                                 //Save and back Buttons
                                 buildGradentRow(
                                     context: context,
@@ -431,13 +498,22 @@ class _SellOrderState extends State<SellOrder> {
                                     btnText: 'قدم',
                                     btnText2: 'الطلب    ',
                                     ontapBtnFun: () {
-                                      FocusScope.of(context).unfocus();
-                                      final isValid =
-                                          _formKey.currentState!.validate();
-                                      FocusScope.of(context).unfocus();
-                                      if (isValid) {
-                                        _formKey.currentState!.save();
-                                        addSellRequest(context);
+                                      if (termsAgreement == false) {
+                                        //اظهار خطا لعدم الموافقه على شروط الخدمه
+                                        showEroorDialogFUN(
+                                            context: context,
+                                            title: 'خطأ',
+                                            eroorText:
+                                                'رجاء الموافقه على الشروط والاحكام قبل تقديم الطلب');
+                                      } else {
+                                        FocusScope.of(context).unfocus();
+                                        final isValid =
+                                            _formKey.currentState!.validate();
+                                        FocusScope.of(context).unfocus();
+                                        if (isValid) {
+                                          _formKey.currentState!.save();
+                                          addSellRequest(context);
+                                        }
                                       }
                                     },
                                     backBtnFun: () {
@@ -630,9 +706,9 @@ class _SellOrderState extends State<SellOrder> {
             // Provider.of<MainProvider>(ctx, listen: false)
             //     .changeimageFileList([]);
             // Provider.of<MainProvider>(ctx, listen: false).changeSearchResult(
-            // FirebaseFirestore.instance
-            //     .collection('sellRequest')
-            //     .snapshots());
+            //     FirebaseFirestore.instance
+            //         .collection('sellRequest')
+            //         .snapshots());
             // Navigator.of(ctx).pushReplacement(
             //   MaterialPageRoute<void>(
             //       builder: (BuildContext context) => Home()),

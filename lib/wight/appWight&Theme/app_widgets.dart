@@ -68,7 +68,7 @@ Text buildText(
   return Text(
     text,
     textDirection: TextDirection.rtl,
-    overflow: textOverflow ?? TextOverflow.ellipsis,
+    overflow: textOverflow ?? TextOverflow.visible,
     textAlign: textAlign,
     style: TextStyle(
       fontFamily: 'Tajawal',
@@ -235,6 +235,7 @@ Widget multilineTextField({
   Widget? prefixIcon,
   bool obscureText = false,
   bool important = false,
+  double? marginBottom,
 }) {
   return Column(
     children: [
@@ -262,7 +263,7 @@ Widget multilineTextField({
       Container(
         // height: height == null ? 40.h : height,
         width: width,
-        margin: EdgeInsets.only(bottom: 25.h),
+        margin: EdgeInsets.only(bottom: marginBottom ?? 25.h),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(

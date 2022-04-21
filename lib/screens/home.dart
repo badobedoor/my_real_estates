@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_real_estates/Provider/main_provider.dart';
 import 'package:my_real_estates/screens/real_estate_details.dart';
 import 'package:my_real_estates/screens/rent_order_page.dart';
+import 'package:my_real_estates/screens/sell_order_page.dart';
 import 'package:my_real_estates/wight/Filter&Sort/filter_bottom_sheet.dart';
 import 'package:my_real_estates/wight/appWight&Theme/app_widgets.dart';
 import 'package:my_real_estates/wight/appWight&Theme/theme.dart';
@@ -16,6 +17,7 @@ import '../wight/Filter&Sort/sort_botttomsheet.dart';
 import '../wight/animation_search_bar.dart';
 import '../wight/dilog/Privacy_dilog.dart';
 import '../wight/dilog/sell_order_ready_dialogpage.dart';
+import '../wight/tab_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -494,16 +496,22 @@ class _HomeState extends State<Home> {
                         bottom: 20,
                         child: GestureDetector(
                           onTap: () {
-                            final fristTimeprivacy = Provider.of<MainProvider>(
-                                    context,
-                                    listen: false)
-                                .fristTimeprivacy;
-                            if (fristTimeprivacy == true) {
-                              privacyDialog(context: context);
-                            } else {
-                              Provider.of<MainProvider>(context, listen: false)
-                                  .changesellansRentOrderShowBTN(true);
-                            }
+                            // anss
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                  builder: (BuildContext context) =>
+                                      SellOrder()),
+                            );
+                            // final fristTimeprivacy = Provider.of<MainProvider>(
+                            //         context,
+                            //         listen: false)
+                            //     .fristTimeprivacy;
+                            // if (fristTimeprivacy == true) {
+                            //   privacyDialog(context: context);
+                            // } else {
+                            //   Provider.of<MainProvider>(context, listen: false)
+                            //       .changesellansRentOrderShowBTN(true);
+                            // }
                           },
 
                           //  Navigator.of(context).push(

@@ -88,12 +88,18 @@ Email: ansbedoor@gmail.com"""),
               btnTextWeight: FontWeight.w400,
               btnText: '',
               btnText2: 'I agree',
-              backBtnFun: () => Navigator.of(context).pop(),
-              ontapBtnFun: () async {
-                await Provider.of<MainProvider>(context, listen: false)
-                    .changeFristTimeprivacy(false);
+              backBtnFun: () {
                 Provider.of<MainProvider>(context, listen: false)
-                    .changesellansRentOrderShowBTN(true);
+                    .changeTermsAgreement(false);
+                Navigator.of(context).pop();
+              },
+              ontapBtnFun: () async {
+                Provider.of<MainProvider>(context, listen: false)
+                    .changeTermsAgreement(true);
+                // await Provider.of<MainProvider>(context, listen: false)
+                //     .changeFristTimeprivacy(false);
+                // Provider.of<MainProvider>(context, listen: false)
+                //     .changesellansRentOrderShowBTN(true);
                 Navigator.of(context).pop();
               },
               backBtnText: 'cansel',
