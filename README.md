@@ -1,6 +1,7 @@
 # My Real Estates App
 
 **My Real Estates App** is a real estate mobile application built with **Flutter** and **Firebase**. It allows users to browse, reserve, and submit real estate listings for sale or rent, while enabling admins to review and approve submitted properties.
+![Yellow Gradient Background Minimal UI Mockup Smartphone Facebook Post for Mobile Application](https://github.com/user-attachments/assets/eff2e97e-fbe4-4c16-92ad-ae721e8413a8)
 
 ---
 
@@ -34,5 +35,4 @@
 ## 📸 Screenshots
 ![Black and White Phone Mockup Webinar Promotion Instagram Story](https://github.com/user-attachments/assets/5a34a144-2d4c-48a2-95b2-dff1a15dd8da)
 
-![Yellow Gradient Background Minimal UI Mockup Smartphone Facebook Post for Mobile Application](https://github.com/user-attachments/assets/eff2e97e-fbe4-4c16-92ad-ae721e8413a8)
 ![White   Green Mobile Mockup Photo Collage Beauty Facebook Post](https://github.com/user-attachments/assets/1cd15d91-1e68-4b0a-99fc-26d72a9f7424)
